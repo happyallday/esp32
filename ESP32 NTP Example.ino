@@ -21,6 +21,19 @@ void spinner() {
   }
 }
 
+void printWelcome() {
+  String welcome = "欢迎登录ESP系统";
+  LCD.clear();
+  for (int i = 0; i < welcome.length() + 16; i++) {
+    LCD.setCursor(0, 0);
+    if (i < welcome.length()) {
+      LCD.print(welcome);
+    } else {
+      LCD.print(welcome.substring(i - 16));
+    }
+    delay(300);
+  }
+}
 void printLocalTime() {
   struct tm timeinfo;
   if (!getLocalTime(&timeinfo)) {
@@ -60,6 +73,9 @@ void setup() {
   LCD.clear();
   LCD.setCursor(0, 0);
   LCD.println("Online");
+
+  printWelcome();
+
   LCD.setCursor(0, 1);
   LCD.println("Updating time...");
 
