@@ -22,7 +22,7 @@ void spinner() {
 }
 
 void printWelcome() {
-  String welcome = "欢迎登录ESP系统";
+  String welcome = "Welcome to ESP";
   LCD.clear();
   for (int i = 0; i < welcome.length() + 16; i++) {
     LCD.setCursor(0, 0);
